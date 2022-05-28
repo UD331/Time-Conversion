@@ -11,12 +11,20 @@ public class TimeZone {
         return zoneId;
     }
 
-    public Set<String> getListOfZoneId() {
-        return ZoneId.getAvailableZoneIds();
+    public String[] getListOfZoneId() {
+        Set<String> s = ZoneId.getAvailableZoneIds();
+        String[] timeZones = new String[s.size()];
+        int i = 0;
+        for (String str : s) {
+            timeZones[i] = str;
+            i++;
+        }
+        return timeZones;
     }
 
-    public ZonedDateTime getZoneDateTime() {
-        return ZonedDateTime.now(zoneId);
+    public LocalTime getZoneDateTime() {
+        return LocalTime.now(zoneId); //returns only time
+        //return ZonedDateTime.now(zoneId); // returns both date and time
     }
 
     public ZoneOffset getZoneOffset() {
@@ -28,9 +36,5 @@ public class TimeZone {
         System.out.println(t.getZoneOffset());
         System.out.println(t.getZoneDateTime());
         System.out.println(t.getZoneId());
-        Set<String> s = t.getListOfZoneId();
-        for (String str : s) {
-            System.out.println(str);
-        }
     }
 }
