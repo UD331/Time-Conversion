@@ -1,3 +1,5 @@
+import java.time.ZoneOffset;
+
 public class Conversion {
 
     public static String originalTimeZone;
@@ -13,8 +15,20 @@ public class Conversion {
         this.changedTimeZone = changedTimeZone;
     }
 
+    public void changeCurrentTime() {
+
+    }
+
+    public void changeEnteredTime() {
+
+    }
+
     public static void main(String[] args) {
         TimeZone t1 = new TimeZone(originalTimeZone);
         TimeZone t2 = new TimeZone(changedTimeZone);
+        ZoneOffset z1 = t1.getZoneOffset();
+        ZoneOffset z2 = t2.getZoneOffset();
+
+
     }
 }
