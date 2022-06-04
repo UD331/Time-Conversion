@@ -8,9 +8,9 @@ public class InputOutputGui {
         String originalTimeZone;
         String[] s = {"Change Current System Time", "Change a Specific Time"};
         String a;
-        a = JOptionPane.showInputDialog(null, "Please select in" +
-                        " which manner you would like to make changes",
-                "Time Conversion", JOptionPane.QUESTION_MESSAGE, s, s[0]);
+        a = String.valueOf(JOptionPane.showInputDialog(null,
+                "Please select in which manner you would like to make changes",
+                "Time Conversion", JOptionPane.QUESTION_MESSAGE, s, s[0]));
         JFrame jFrame = new JFrame();
         jFrame.setTitle("Time Change");
         jFrame.setResizable(false);
