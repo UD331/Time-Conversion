@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class InputOutputGui {
     public static void main(String[] args) {
@@ -7,21 +9,36 @@ public class InputOutputGui {
         String[] list = t.getListOfZoneId();
         String originalTimeZone;
         String[] s = {"Change Current System Time", "Change a Specific Time"};
-        String a;
-        a = String.valueOf(JOptionPane.showInputDialog(null,
-                "Please select in which manner you would like to make changes",
-                "Time Conversion", JOptionPane.QUESTION_MESSAGE, s, s[0]));
         JFrame jFrame = new JFrame();
         jFrame.setTitle("Time Change");
         jFrame.setResizable(false);
-        jFrame.setSize(540, 480);
+        jFrame.setSize(340, 280);
         jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jFrame.setLayout(new GridLayout(4,0));
+        JComboBox<String> cb = new JComboBox<>(s);
+        cb.setBounds(250, 250,290,220);
+        jFrame.add(cb);
+        JButton jButton = new JButton();
+        jButton.setLayout(null);
+        jButton.setBounds(300, 275, 100, 100);
+        jButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cb.addItemListener(listener -> {
+
+                    String choice;
+
+                    JComboBox getSelection = (JComboBox) listener.getSource();
+
+                    choice = (String) getSelection.getSelectedItem();
+
+                    System.out.println(choice);
+
+                }); 
+            }
+        });
+        jFrame.add(jButton);
         jFrame.pack();
         jFrame.setVisible(true);
-        JPanel jPanel = new JPanel();
-        JButton jButton = new JButton();
-        jPanel.add(jButton);
-        jFrame.add(jPanel);
     }
 }
