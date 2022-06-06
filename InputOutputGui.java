@@ -24,17 +24,11 @@ public class InputOutputGui {
         jButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cb.addItemListener(listener -> {
+                String choice;
 
-                    String choice;
+                choice = (String) cb.getSelectedItem();
 
-                    JComboBox getSelection = (JComboBox) listener.getSource();
-
-                    choice = (String) getSelection.getSelectedItem();
-
-                    System.out.println(choice);
-
-                }); 
+                System.out.println(choice);
             }
         });
         jFrame.add(jButton);
