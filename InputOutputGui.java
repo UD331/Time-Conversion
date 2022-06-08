@@ -55,7 +55,42 @@ public class InputOutputGui {
                 } else {
                     jFrame.remove(jButton);
                     jFrame.remove(cb);
-                    jFrame.setLayout( new FlowLayout());
+                    jFrame.setLayout( new GridLayout(9,0));
+                    JLabel j1 = new JLabel();
+                    j1.setText("Please select original Timezone");
+                    JComboBox jComboBox = new JComboBox<>(list);
+                    jComboBox.setMaximumRowCount(3);
+                    JLabel j2 = new JLabel();
+                    j2.setText("Please select new Timezone");
+                    JComboBox comboBox = new JComboBox<>(list);
+                    comboBox.setMaximumRowCount(3);
+                    JLabel j3 = new JLabel();
+                    j3.setText("Please select the time");
+                    JLabel j4 = new JLabel();
+                    JLabel j5 = new JLabel();
+                    j5.setText("New Time");
+                    JLabel j6 = new JLabel();
+                    JButton go = new JButton();
+                    j1.setVisible(true);
+                    j2.setVisible(true);
+                    j3.setVisible(true);
+                    j4.setVisible(true);
+                    j5.setVisible(true);
+                    j6.setVisible(true);
+                    comboBox.setVisible(true);
+                    jComboBox.setVisible(true);
+                    go.setVisible(true);
+                    jFrame.add(j1);
+                    jFrame.add(jComboBox);
+                    jFrame.add(j2);
+                    jFrame.add(comboBox);
+                    jFrame.add(j3);
+                    jFrame.add(j4);
+                    jFrame.add(go);
+                    jFrame.add(j5);
+                    jFrame.add(j6);
+                    jFrame.revalidate();
+                    jFrame.repaint();
                 }
             }
         });
