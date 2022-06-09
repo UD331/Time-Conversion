@@ -52,6 +52,13 @@ public class InputOutputGui {
                     jFrame.add(j3);
                     jFrame.revalidate();
                     jFrame.repaint();
+                    go.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            String a = (String)jComboBox.getSelectedItem();
+                            TimeZone t1 = new TimeZone(a);
+                        }
+                    });
                 } else {
                     jFrame.remove(jButton);
                     jFrame.remove(cb);
@@ -91,6 +98,15 @@ public class InputOutputGui {
                     jFrame.add(j6);
                     jFrame.revalidate();
                     jFrame.repaint();
+                    go.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            String a = (String)jComboBox.getSelectedItem();
+                            String b = (String)comboBox.getSelectedItem();
+                            TimeZone t1 = new TimeZone(a);
+                            TimeZone t2 = new TimeZone(b);
+                        }
+                    });
                 }
             }
         });
