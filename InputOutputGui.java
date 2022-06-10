@@ -2,6 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Time;
+import java.time.*;
+
 
 public class InputOutputGui {
     public static void main(String[] args) {
@@ -39,6 +42,7 @@ public class InputOutputGui {
                     JLabel j2 = new JLabel();
                     j2.setText("New Time");
                     JLabel j3 = new JLabel();
+                    j3.setText(String.valueOf(LocalTime.now()));
                     JButton go = new JButton();
                     j1.setVisible(true);
                     j2.setVisible(true);
@@ -57,6 +61,9 @@ public class InputOutputGui {
                         public void actionPerformed(ActionEvent e) {
                             String a = (String)jComboBox.getSelectedItem();
                             TimeZone t1 = new TimeZone(a);
+                            j3.setText(String.valueOf(t1.getZoneDateTime()));
+                            jFrame.revalidate();
+                            jFrame.repaint();
                         }
                     });
                 } else {
