@@ -69,7 +69,7 @@ public class InputOutputGui {
                 } else {
                     jFrame.remove(jButton);
                     jFrame.remove(cb);
-                    jFrame.setLayout( new GridLayout(9,0));
+                    jFrame.setLayout( new GridLayout(11,0));
                     JLabel j1 = new JLabel();
                     j1.setText("Please select original Timezone");
                     JComboBox jComboBox = new JComboBox<>(list);
@@ -80,7 +80,18 @@ public class InputOutputGui {
                     comboBox.setMaximumRowCount(3);
                     JLabel j3 = new JLabel();
                     j3.setText("Please select the time");
-                    JLabel j4 = new JLabel();
+                    String[] day = {"0", "1", "2", "3", "4", "5", "6"," 7", "8"," 9", "10",
+                                    "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21",
+                                    "22", "23"};
+                    String[] hr_sec = new String[60];
+                    for (int i = 0; i<60; i++)
+                        hr_sec[i] = String.valueOf(i);
+                    JComboBox hour = new JComboBox<>(day);
+                    hour.setMaximumRowCount(6);
+                    JComboBox minute = new JComboBox<>(hr_sec);
+                    minute.setMaximumRowCount(6);
+                    JComboBox second = new JComboBox<>(hr_sec);
+                    second.setMaximumRowCount(6);
                     JLabel j5 = new JLabel();
                     j5.setText("New Time");
                     JLabel j6 = new JLabel();
@@ -88,7 +99,9 @@ public class InputOutputGui {
                     j1.setVisible(true);
                     j2.setVisible(true);
                     j3.setVisible(true);
-                    j4.setVisible(true);
+                    hour.setVisible(true);
+                    minute.setVisible(true);
+                    second.setVisible(true);
                     j5.setVisible(true);
                     j6.setVisible(true);
                     comboBox.setVisible(true);
@@ -99,7 +112,9 @@ public class InputOutputGui {
                     jFrame.add(j2);
                     jFrame.add(comboBox);
                     jFrame.add(j3);
-                    jFrame.add(j4);
+                    jFrame.add(hour);
+                    jFrame.add(minute);
+                    jFrame.add(second);
                     jFrame.add(go);
                     jFrame.add(j5);
                     jFrame.add(j6);
