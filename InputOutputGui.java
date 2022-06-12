@@ -125,6 +125,10 @@ public class InputOutputGui {
                         public void actionPerformed(ActionEvent e) {
                             String a = (String)jComboBox.getSelectedItem();
                             String b = (String)comboBox.getSelectedItem();
+                            int h = Integer.parseInt((String)hour.getSelectedItem());
+                            int m = Integer.parseInt((String)minute.getSelectedItem());
+                            int s = Integer.parseInt((String)second.getSelectedItem());
+                            System.out.println(h + " " + m + " " + s);
                             TimeZone t1 = new TimeZone(a);
                             TimeZone t2 = new TimeZone(b);
                         }
