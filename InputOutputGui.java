@@ -128,9 +128,26 @@ public class InputOutputGui {
                             int h = Integer.parseInt((String)hour.getSelectedItem());
                             int m = Integer.parseInt((String)minute.getSelectedItem());
                             int s = Integer.parseInt((String)second.getSelectedItem());
-                            System.out.println(h + " " + m + " " + s);
                             TimeZone t1 = new TimeZone(a);
                             TimeZone t2 = new TimeZone(b);
+                            String off1[] = ((String.valueOf(t1.getZoneOffset()))).split(":");
+                            String off2[] = ((String.valueOf(t2.getZoneOffset()))).split(":");
+                            int hr_dif = Integer.parseInt(off2[0]) - Integer.parseInt(off1[0]);
+                            int min_dif = Integer.parseInt(off2[1]) - Integer.parseInt(off1[1]);
+                            if ((m + min_dif) >= 60) {
+                                m = (min_dif + m) - 60;
+                                hr_dif += 1;
+                            } else
+                                m = (min_dif + m);
+                            if ((h + hr_dif) >= 24) {
+                                h = (hr_dif + h) - 24;
+                            } else
+                                h = (hr_dif + h);
+                            String new_time = h + ":" + m + ":" + s;
+                            j6.setText(new_time);
+                            jFrame.add(j6);
+                            jFrame.revalidate();
+                            jFrame.repaint();
                         }
                     });
                 }
