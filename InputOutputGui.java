@@ -44,6 +44,8 @@ public class InputOutputGui {
                     JLabel j3 = new JLabel();
                     j3.setText(String.valueOf(LocalTime.now()));
                     JButton go = new JButton();
+                    JButton back = new JButton("Back");
+                    back.setVisible(true);
                     j1.setVisible(true);
                     j2.setVisible(true);
                     j3.setVisible(true);
@@ -54,8 +56,15 @@ public class InputOutputGui {
                     jFrame.add(go);
                     jFrame.add(j2);
                     jFrame.add(j3);
+                    jFrame.add(back);
                     jFrame.revalidate();
                     jFrame.repaint();
+                    back.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+
+                        }
+                    });
                     go.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
@@ -96,6 +105,8 @@ public class InputOutputGui {
                     j5.setText("New Time");
                     JLabel j6 = new JLabel();
                     JButton go = new JButton();
+                    JButton back = new JButton("Back");
+                    back.setVisible(true);
                     j1.setVisible(true);
                     j2.setVisible(true);
                     j3.setVisible(true);
@@ -118,8 +129,15 @@ public class InputOutputGui {
                     jFrame.add(go);
                     jFrame.add(j5);
                     jFrame.add(j6);
+                    jFrame.add(back);
                     jFrame.revalidate();
                     jFrame.repaint();
+                    back.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+
+                        }
+                    });
                     go.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
