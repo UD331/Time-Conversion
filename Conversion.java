@@ -1,46 +1,38 @@
-import java.lang.reflect.Array;
-import java.time.ZoneOffset;
-import java.util.Arrays;
+import javax.swing.*;
 
 public class Conversion {
+    
 
-    public static String originalTimeZone;
-    public static String changedTimeZone;
-    public static String originalTime;
-    public static String changedTime;
-
-    public Conversion(String originalTime, String originalTimeZone,
-                      String changedTime, String changedTimeZone) {
-        this.originalTime = originalTime;
-        this.originalTimeZone = originalTimeZone;
-        this.changedTime = changedTime;
-        this.changedTimeZone = changedTimeZone;
+    public String changeCurrentTime(JComboBox jComboBox) {
+        String a = (String)jComboBox.getSelectedItem();
+        TimeZone t1 = new TimeZone(a);
+        return String.valueOf(t1.getZoneDateTime());
     }
 
-    public void changeCurrentTime() {
-
+    public String changeEnteredTime(JComboBox jComboBox, JComboBox comboBox, JComboBox hour,
+                                    JComboBox minute, JComboBox second) {
+        String a = (String)jComboBox.getSelectedItem();
+        String b = (String)comboBox.getSelectedItem();
+        int h = Integer.parseInt((String)hour.getSelectedItem());
+        int m = Integer.parseInt((String)minute.getSelectedItem());
+        int s = Integer.parseInt((String)second.getSelectedItem());
+        TimeZone t1 = new TimeZone(a);
+        TimeZone t2 = new TimeZone(b);
+        String off1[] = ((String.valueOf(t1.getZoneOffset()))).split(":");
+        String off2[] = ((String.valueOf(t2.getZoneOffset()))).split(":");
+        int hr_dif = Integer.parseInt(off2[0]) - Integer.parseInt(off1[0]);
+        int min_dif = Integer.parseInt(off2[1]) - Integer.parseInt(off1[1]);
+        if ((m + min_dif) >= 60) {
+            m = (min_dif + m) - 60;
+            hr_dif += 1;
+        } else
+            m = (min_dif + m);
+        if ((h + hr_dif) >= 24) {
+            h = (hr_dif + h) - 24;
+        } else
+            h = (hr_dif + h);
+        String new_time = h + ":" + m + ":" + s;
+        return new_time;
     }
-
-    public void changeEnteredTime() {
-
-    }
-
-    public static void main(String[] args) {
-        //TimeZone t1 = new TimeZone(originalTimeZone);
-        //TimeZone t2 = new TimeZone(changedTimeZone);
-        TimeZone t1 = new TimeZone("America/Montreal");
-        TimeZone t2 = new TimeZone("Europe/Paris");
-        ZoneOffset z1 = t1.getZoneOffset();
-        ZoneOffset z2 = t2.getZoneOffset();
-        String s1 = String.valueOf(z1);
-        String s2 = String.valueOf(z2);
-        String[] v1 = s1.split(":");
-        String[] v2 = s2.split(":");
-        System.out.println(Arrays.toString(v1));
-        System.out.println(Arrays.toString(v2));
-        int a = Integer.parseInt(v2[0]) - Integer.parseInt(v1[0]);
-        int b = Integer.parseInt(v2[1]) - Integer.parseInt(v1[1]);
-        System.out.println(a);
-        System.out.println(b);
-    }
+    
 }
