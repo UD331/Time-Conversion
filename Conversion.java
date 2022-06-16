@@ -1,15 +1,15 @@
 import javax.swing.*;
 
 public class Conversion {
-    
 
-    public String changeCurrentTime(JComboBox jComboBox) {
+
+    public static String changeCurrentTime(JComboBox jComboBox) {
         String a = (String)jComboBox.getSelectedItem();
         TimeZone t1 = new TimeZone(a);
         return String.valueOf(t1.getZoneDateTime());
     }
 
-    public String changeEnteredTime(JComboBox jComboBox, JComboBox comboBox, JComboBox hour,
+    public static String changeEnteredTime(JComboBox jComboBox, JComboBox comboBox, JComboBox hour,
                                     JComboBox minute, JComboBox second) {
         String a = (String)jComboBox.getSelectedItem();
         String b = (String)comboBox.getSelectedItem();
@@ -34,5 +34,5 @@ public class Conversion {
         String new_time = h + ":" + m + ":" + s;
         return new_time;
     }
-    
+
 }
