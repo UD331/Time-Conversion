@@ -31,10 +31,4 @@ public class TimeZone {
         return zoneId.getRules().getOffset(Instant.now());
     }
 
-    public static void main(String[] args) {
-        TimeZone t = new TimeZone("America/Montreal");
-        System.out.println(t.getZoneOffset());
-        System.out.println(t.getZoneDateTime());
-        System.out.println(t.getZoneId());
-    }
 }
