@@ -15,7 +15,7 @@ public class InputOutputGui {
         JFrame jFrame = new JFrame();
         jFrame.setTitle("Time Change");
         jFrame.setResizable(true);
-        jFrame.setSize(340, 280);
+        jFrame.setSize(80, 280);
         jFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jFrame.setLayout(new GridLayout(4,0));
         JComboBox<String> cb = new JComboBox<>(s);
@@ -95,7 +95,7 @@ public class InputOutputGui {
     public static  void optionTwo(JFrame jFrame, JButton jButton, JComboBox cb, String[] list) {
         jFrame.remove(jButton);
         jFrame.remove(cb);
-        jFrame.setLayout( new GridLayout(11,0));
+        jFrame.setLayout(new FlowLayout());
         JLabel j1 = new JLabel();
         j1.setText("Please select original Timezone");
         JComboBox jComboBox = new JComboBox<>(list);
