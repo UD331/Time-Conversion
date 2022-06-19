@@ -24,7 +24,6 @@ public class TimeZone {
 
     public LocalTime getZoneDateTime() {
         return LocalTime.now(zoneId); //returns only time
-        //return ZonedDateTime.now(zoneId); // returns both date and time
     }
 
     public ZoneOffset getZoneOffset() {
