@@ -31,6 +31,23 @@ public class InputOutputGui {
         jFrame.pack();
         jFrame.setVisible(true);
     }
+
+    public static void recreate(JFrame jFrame, String[] list, String[] s) {
+        jFrame.getContentPane().removeAll();
+        jFrame.setLayout(new GridLayout(4,0));
+        JComboBox<String> cb = new JComboBox<>(s);
+        cb.setBounds(250, 250,290,220);
+        jFrame.add(cb);
+        JButton jButton = new JButton();
+        jButton.setLayout(null);
+        jButton.setBounds(300, 275, 100, 100);
+        jFrame.add(jButton);
+
+        optionZero(jFrame, jButton, cb, list, s);
+
+        jFrame.pack();
+        jFrame.setVisible(true);
+    }
     public static void optionZero(JFrame jFrame, JButton jButton, JComboBox cb, String[] list, String[] s) {
         jButton.addActionListener(new ActionListener() {
             @Override
@@ -39,15 +56,15 @@ public class InputOutputGui {
 
                 choice = (String) cb.getSelectedItem();
                 if (choice.equalsIgnoreCase(s[0])) {
-                    optionOne(jFrame, jButton, cb, list);
+                    optionOne(jFrame, jButton, cb, list, s);
 
                 } else {
-                    optionTwo(jFrame, jButton, cb, list);
+                    optionTwo(jFrame, jButton, cb, list, s);
                 }
             }
         });
     }
-    public static void optionOne(JFrame jFrame, JButton jButton, JComboBox cb, String[] list) {
+    public static void optionOne(JFrame jFrame, JButton jButton, JComboBox cb, String[] list, String[] s) {
         jFrame.remove(jButton);
         jFrame.remove(cb);
         jFrame.setLayout( new GridLayout(5,0));
@@ -78,8 +95,7 @@ public class InputOutputGui {
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jFrame.dispose();
-                create();
+                recreate(jFrame, list, s);
             }
         });
         go.addActionListener(new ActionListener() {
@@ -92,7 +108,7 @@ public class InputOutputGui {
         });
     }
 
-    public static  void optionTwo(JFrame jFrame, JButton jButton, JComboBox cb, String[] list) {
+    public static  void optionTwo(JFrame jFrame, JButton jButton, JComboBox cb, String[] list, String[] s) {
         jFrame.remove(jButton);
         jFrame.remove(cb);
         jFrame.setLayout(new FlowLayout());
@@ -152,8 +168,7 @@ public class InputOutputGui {
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                jFrame.dispose();
-                create();
+                recreate(jFrame, list, s);
             }
         });
         go.addActionListener(new ActionListener() {
